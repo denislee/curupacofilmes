@@ -1,0 +1,68 @@
+@import "grid.scss";
+@import "compass/utilities/sprites";
+
+@import "clients/*.png";
+
+$icons-spacing: 10px;
+@include all-clients-sprites;
+
+.clients {
+	float: left;
+	width: 100%;
+	margin-bottom: 7.1em;
+
+	.title {
+		width: 100%;
+		text-align: center;
+		margin-bottom: 48px;
+	}
+
+	.logos-container {
+		margin: 0 auto;
+		width: 780px;
+	}
+
+	.logo {
+		display: block;
+		width: 194px;
+		height: 117px;
+		float: left;
+
+		&.clients-medial, 
+		&.clients-hyundai,
+		&.clients-uol,
+		&.clients-oi {
+			border-bottom: 1px solid #ebebeb;
+		}
+
+		&.clients-hyundai,
+		&.clients-sulamerica {
+			border-left: 1px solid #ebebeb;
+			border-right: 1px solid #ebebeb;
+		}
+
+		&.clients-uol,
+		&.clients-paypal {
+			border-right: 1px solid #ebebeb;
+		}
+
+		&.clients-medial:hover { @extend .clients-medial-over; }
+		&.clients-hyundai:hover { @extend .clients-hyundai-over; }
+		&.clients-uol:hover { @extend .clients-uol-over; }
+		&.clients-oi:hover { @extend .clients-oi-over; }
+		&.clients-santander:hover { @extend .clients-santander-over; }
+		&.clients-sulamerica:hover { @extend .clients-sulamerica-over; }
+		&.clients-paypal:hover { @extend .clients-paypal-over; }
+		&.clients-inova:hover { @extend .clients-inova-over; }
+	}
+}
+
+@media all and (max-width: 810px) {
+
+	.clients {
+		.logos-container { 
+			width: 400px; 
+		}
+		.logo { border: 1px solid #ebebeb; }
+	}
+}

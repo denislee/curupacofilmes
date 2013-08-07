@@ -1,0 +1,361 @@
+@import "compass/css3";
+
+@mixin secondary-details($left : -120px) {
+	@include border-radius(50%);
+	@include box-shadow(0px 0px 3pt 2pt #dbdbdb);
+	background: #dbdbdb;
+	border: 2px solid #c1bbbb;
+	width: 5px;
+	height: 5px;
+	position: absolute;
+	left: $left;
+	top: 0;
+}
+
+@mixin reel($left: 52px) {
+	@include border-radius(50%);
+	-webkit-animation: 1.5s rotate-reel infinite linear;
+	-moz-animation: 1.5s rotate-reel infinite linear;
+	-ms-animation: 1.5s rotate-reel infinite linear;
+	-o-animation: 1.5s rotate-reel infinite linear;
+	animation: 1.5s rotate-reel infinite linear;
+	background: #262626;
+	background: -moz-linear-gradient(bottom, #262626 50%, #000 50%);
+	background: -webkit-linear-gradient(bottom, #262626 50%, #000 50%);
+	background: -o-linear-gradient(bottom, #262626 50%, #000 50%);
+	background: -ms-linear-gradient(bottom, #262626 50%, #000 50%);
+	background: linear-gradient(bottom, #262626 50%, #000 50%);
+	width: 120px;
+	height: 120px;
+	position: absolute;
+	top: -116px;
+	left: $left;
+}
+
+@mixin reel-middle {
+	@include border-radius(50%);
+	background-color: #fff;
+	width: 20px;
+	height: 20px;
+	z-index: 2;
+	position: absolute;
+	top: 50px;
+	left: 50px;
+}
+
+@-webkit-keyframes rotate-reel {
+	to {
+		-webkit-transform: rotate(-360deg);
+	}
+}
+
+@-moz-keyframes rotate-reel {
+	to {
+		-moz-transform: rotate(-360deg);
+	}
+}
+
+@-ms-keyframes rotate-reel {
+	to {
+		-ms-transform: rotate(-360deg);
+	}
+}
+
+@-o-keyframes rotate-reel {
+	to {
+		-o-transform: rotate(-360deg);
+	}
+}
+
+@keyframes rotate-reel {
+	to {
+		transform: rotate(-360deg);
+	}
+}
+
+@mixin tripod($left: -35px, $deg: 20deg) {
+	@include border-radius(15px 15px 0 0);
+	background-color: #575560;
+    background-image: linear-gradient(to left, #575560 75%, #4c4a54 25%);
+    border-top: 7px solid #4c4a54;
+    position: absolute;
+    left: $left;
+    top: -9px;
+	width: 20px;
+	height: 64px;
+	-webkit-transform: rotate($deg);
+	-moz-transform: rotate($deg);
+	-ms-transform: rotate($deg);
+	-o-transform: rotate($deg);
+	transform: rotate($deg);
+}
+
+.cssanimations {
+	.camera {
+		.camera-container {
+			position: relative;
+			margin-left: 10px;
+		}
+
+		.stage {
+			position: relative;
+			margin: 70px 0 0 0;
+			height: 182px;
+			max-width: 326px;
+			width: 100%;
+			float: right;
+
+			&:before {
+				@include border-radius(50% 50% 0 0);
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 117px;
+				width: 100%;
+				height: 112px;
+				background: #ffffff;
+				background: -moz-radial-gradient(#f1f1f1 26%,#fff 72%);
+				background: -webkit-radial-gradient(#f1f1f1 26%,#fff 72%);
+				background: -o-radial-gradient(#f1f1f1 26%,#fff 72%);
+				background: -ms-radial-gradient(#f1f1f1 26%,#fff 72%);
+				background: radial-gradient(#f1f1f1 26%,#fff 72%);
+				z-index: 0;
+			}
+
+			&:after {
+				content: "";
+				border-top: 1px solid #dbdbdb;
+				background: #fff;
+				width: 100%;
+				height: 77px;
+				position: absolute;
+				left: 0;
+				bottom: -79px;
+			}
+		}
+
+		.reel {
+			&.one {
+				@include reel;
+
+				&:before {
+					@include reel-middle;
+					content: "";
+				}
+			}
+
+			&.two {
+				@include reel(140px);
+
+				&:before {
+					@include reel-middle;
+					content: "";
+				}
+			}
+		}
+
+		.lens {
+			background-color: #4e4d55;
+			border-bottom: 23px solid #43424a;
+			border-left: 1px solid #43424a;
+			width: 52px;
+			height: 32px;
+			position: absolute;
+			top: 16px;
+			left: -1px;
+
+			&:after {
+				content: "";
+				background-color: #4e4d55;
+				border-left: 5px solid #43424a;
+				width: 19px;
+				height: 39px;
+				position: absolute;
+				top: 11px;
+				right: -24px;
+			}
+
+			&:before {
+				content: "";
+				background-color: #43424a;
+				border-left: 5px solid #35343b;
+				height: 5px;
+				width: 19px;
+				position: absolute;
+				left: 52px;
+				bottom: -17px;
+				z-index: 1;
+			}
+		}
+
+		.body {
+			background-color: #dcd8d5;
+			border-left: 12px solid #c1bbbb;
+			width: 149px;
+			height: 66px;
+			position: absolute;
+			left: 76px;
+			z-index: 1;
+
+			.main-details {
+				-webkit-animation: 1.5s rec infinite linear;
+				-moz-animation: 1.5s rec infinite linear;
+				-ms-animation: 1.5s rec infinite linear;
+				-o-animation: 1.5s rec infinite linear;
+				animation: 1.5s rec infinite linear;
+				@include border-radius(50%);
+				background-color: #4e4d55;
+				border: 11px solid #c0bcbb;
+				width: 14px;
+				height: 14px;
+				position: absolute;
+				top: 16px;
+				right: 35px;
+
+				&:before {
+					content: "";
+					position: absolute;
+					width: 40px;
+					height: 3px;
+					border: 3px solid #c2bebd;
+					border-left-width: 0;
+					border-right-width: 0;
+					left: -76px;
+					top: -6px;
+				}
+
+				&:after {
+					@include border-radius(1px);
+					content: "";
+					background: -webkit-linear-gradient(bottom, #dcd8d5 41%, #000 68%, #DCD8D5 35%);
+					background: -moz-linear-gradient(bottom, #dcd8d5 41%, #000 68%, #DCD8D5 35%);
+					background: -ms-linear-gradient(bottom, #dcd8d5 41%, #000 68%, #DCD8D5 35%);
+					background: -o-linear-gradient(bottom, #dcd8d5 41%, #000 68%, #DCD8D5 35%);
+					background: linear-gradient(bottom, #dcd8d5 41%, #000 68%, #DCD8D5 35%);
+					width: 22px;
+					border: 2px solid #4e4d55;
+					border-left-width: 0;
+					border-right-width: 0;
+					height: 10px;
+					position: absolute;
+					left: 30px;
+				}
+			}
+
+			.secondary-details {
+				@include border-radius(50%);
+				background: #b64346;
+				width: 10px;
+				height: 10px;
+				position: absolute;
+				bottom: -18px;
+				right: 8px;
+
+				&:before {
+					content: "";
+					@include secondary-details;
+				}
+
+				&:after {
+					content: "";
+					@include secondary-details(-100px);
+				}
+
+			}
+
+			&:before {
+				content: "";
+				background-color: #c1bbbb;
+				border-left: 12px solid #a7a3a4;
+				width: 149px;
+				height: 25px;
+				position: absolute;
+				bottom: -25px;
+				left: -12px;
+			}
+
+			&:after {
+				content: "";
+				background-color: #696870;
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				top: 36px;
+				right: -20px;
+			}
+		}
+
+		.support {
+			background: #696870;
+			height: 15px;
+			width: 63px;
+			position: absolute;
+			top: 97px;
+			left: 128px;
+
+			&:before {
+				content: "";
+				position: absolute;
+				background: #5a5863;
+				height: 6px;
+				width: 29px;
+				left: 15px;
+				top: -6px;
+			}
+		}
+
+		.tripod {
+			@include border-radius(15px 15px 0 0);
+			background-color: #575560;
+			background: -webkit-linear-gradient(right, #575560 55%, #4c4a54 45%);
+			background: -moz-linear-gradient(right, #575560 55%, #4c4a54 45%);
+			background: -ms-linear-gradient(right, #575560 55%, #4c4a54 45%);
+			background: -o-linear-gradient(right, #575560 55%, #4c4a54 45%);
+			background: linear-gradient(right, #575560 55%, #4c4a54 45%);
+			position: absolute;
+			width: 25px;
+			height: 56px;
+			top: 128px;
+			left: 148px;
+
+			&:before {
+				@include tripod;
+				content: "";
+			}
+
+			&:after {
+				@include tripod(40px, -20deg);
+				content: "";
+			}
+		}
+	}
+}
+
+.no-cssanimations {
+	.camera {
+		.stage {
+			@include background-size(100%);
+			background: url(../images/camera.jpg) no-repeat;
+			width: 100%;
+			max-width: 369px;
+			min-width: 335px;
+			min-height: 297px;
+			float: left;
+
+			div {
+				display: none;
+			}
+		}
+	}
+}
+
+@media all and (max-width: 754px) {
+	.cssanimations	{
+		.camera {
+			.stage {
+				float: none;
+				margin: 10em auto 0;
+			}
+		}
+	}
+}

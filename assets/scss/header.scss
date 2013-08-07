@@ -1,0 +1,143 @@
+@import "grid.scss";
+@import "compass/css3";
+
+.curupaco-header {
+	background: #1aa772 url('../images/header-background.jpg') no-repeat center top;
+	@include background-size(cover, 100%);
+	color: #fff;
+	clear: both;
+	height: 44.9em;
+	margin-bottom: 88px;
+	position: relative;
+
+	.inner {
+		@include column(12);
+		padding-top: 2.822em;
+	}
+
+	.logo {
+		background: url('../images/curupaco-logo.png') no-repeat 0 0;
+		@include background-size(100%, 100%);
+		float: left;
+		display: block;
+		text-indent: -9999px;
+		height: 34px;
+		width: 100%;
+		max-width: 202px;
+		max-height: 34px;
+	}
+
+	.navigation {
+		float: right;
+
+		li { float: left; margin-left: 1.5em; }
+
+		.nav-item {
+			@include single-transition(background, .2s, linear);
+			@include border-radius(3px);
+			color: #fff;
+			display: block;
+			text-align: center;
+			text-transform: uppercase;
+			text-decoration: none;
+			font-size: 0.85em;
+			padding: 8px 15px;
+
+			&.first { margin: 0; }
+
+			&:hover { background-color: #223442; }
+
+			&.selected { background-color: #223442; }
+		}
+	}
+
+	.disclaimer {
+		@include column(12);
+		text-align: center;
+		margin-top: 13.4em;
+
+		.title {
+			font: bold 3.6em 'Oswald',serif;
+			text-transform: uppercase;
+		}
+
+		.subtitle {
+			width: 71%;
+			margin: 1.3em auto;
+			line-height: 1.2em;
+			font-size: 1.1em;
+		}
+	}
+
+	.speech {
+		background: url(../images/header-speech.png) no-repeat 0 0;
+		position: absolute;
+		cursor: pointer;
+		bottom: -35px;
+		left: 50%;
+		margin-left: -36px;
+		width: 72px;
+		height: 36px;
+	}
+}
+
+@media all and (max-width: 754px) {
+	.curupaco-header {
+		height: 24em;
+		margin-bottom: 3em;
+
+		.speech { display: none; }
+
+		.logo {
+			clear: both;
+			margin: 0 auto;
+			float: none;
+		}
+
+		.navigation {
+			@include column(12);
+			margin-top: 4em;
+			margin-left: 4%;
+
+			ul {
+				width: 40em;
+				margin: 0 auto;
+			}
+		}
+
+		.disclaimer {
+			margin-top: 3.4em;
+
+			.subtitle {
+				display: none;
+			}
+		}
+	}
+}
+
+@media all and (max-width: 514px) {
+	.curupaco-header {
+		.navigation {
+			margin-left: 1%;
+
+			.nav-item { padding: 8px 10px; }
+		}
+	}
+}
+
+@media all and (max-width: 468px) { 
+	.curupaco-header {
+		height: 23em;
+
+		.navigation {
+			li { margin: 0; }
+
+		}
+
+		.disclaimer {
+			.title {
+				font-size: 3.1em;
+			}
+		}
+	}
+}
